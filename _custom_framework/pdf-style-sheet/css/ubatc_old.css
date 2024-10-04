@@ -1,0 +1,934 @@
+*[class ~= "map/map"] > *[class ~= "toc/toc"] {
+    display: none !important;
+}
+*[class ~= "map/map"] > *[class ~= "front-page/front-page"] {
+    display: none !important;
+}
+*[class ~= "topic/topic"] [is-chapter] {
+    -oxy-page-group: auto;
+}
+/* TITLES (TOPICs & SECTIONS) */
+*[class ~= "topic/topic"] > *[class ~= "topic/title"] {
+    color: #BC0D1D;
+    font-family: "Roboto Black";
+    font-size: 14pt !important;
+    /*    font-weight: 700 !important;*/
+    /*margin-top:30px !important;*/
+}
+*[class ~= 'topic/section'] > *[class ~= 'topic/title'] {
+    color: #BC0D1D;
+    font-family: "Roboto";
+    font-size: 12pt;
+    /*    font-weight: 600;*/
+}
+/*Modify the way the title are numbered in pdf*/
+*[class ~= "map/topicref"][is-chapter]:not([is-part]) > *[class ~= "map/topicmeta"] > *[class ~= "topic/navtitle"]:before {
+    content: "" counter(toc-chapter, decimal-leading-zero) " - " !important;
+    /*  content: "" counter(toc-chapter) " - " !important; */
+}
+*[class ~= "topic/topic"][is-chapter]:not([is-part]) > *[class ~= "topic/title"]:before {
+    content: "" counter(chapter, decimal-leading-zero) "\A" !important;
+    /*  content: "" counter(chapter) ". " !important; */
+}
+/*modification of the default numbering to avoid 'hidden' title to be taken into account*/
+*[class ~= "map/map"][numbering ^= 'deep']
+*[class ~= "map/topicref"][is-chapter]:not([is-part])[outputclass ~= 'no-numbering']
+> *[class ~= "map/topicmeta"] + *[class ~= "map/topicref"] {
+    counter-increment: none !important;
+}
+*[class ~= "map/map"][numbering ^= 'deep']
+*[class ~= "topic/topic"][is-chapter]:not([is-part])[outputclass ~= 'no-numbering'] > *[class ~= "topic/topic"] {
+    counter-increment: none !important;
+}
+*[class ~= "map/map"][numbering ^= 'deep']
+*[class ~= "topic/topic"][is-chapter]:not([is-part])[outputclass ~= 'no-numbering'] > *[class ~= "topic/topic"] + *[class ~= "topic/topic"] {
+    counter-increment: section1 chapter-and-sections !important;
+}
+/*Modify the font for equations*/
+*[class ~= "equation-d/equation-block"],
+*[class ~= "equation-d/equation-inline"] {
+    font-family: "Neue Haas Unica Pro Light";
+    font-size: 9pt;
+    padding: 1em;
+}
+
+
+
+
+
+
+ /*  
+ /*Modify the way the title are numbered in pdf*/
+*[class ~= "map/topicref"][is-chapter]:not([is-part]) > *[class ~= "map/topicmeta"] > *[class ~= "topic/navtitle"]:before {
+    /*  content: ""counter(toc-chapter, decimal-leading-zero) " - " !important;*/
+    content: "" counter(toc-chapter) " - " !important;
+}
+*[class ~= "topic/topic"][is-chapter]:not([is-part]) > *[class ~= "topic/title"]:before {
+    /*  content: ""counter(chapter, decimal-leading-zero) "\A" !important;*/
+    /*  content: ""counter(chapter, decimal-leading-zero) ". " !important;*/
+    content: "" counter(chapter) ". " !important;
+}
+/*modification of the default numbering to avoid 'hidden' title to be taken into account*/
+*[class ~= "map/map"][numbering ^= 'deep']
+*[class ~= "map/topicref"][is-chapter]:not([is-part])[outputclass ~= 'no-numbering']
+> *[class ~= "map/topicmeta"] + *[class ~= "map/topicref"] {
+    counter-increment: none !important;
+}
+*[class ~= "map/map"][numbering ^= 'deep']
+*[class ~= "topic/topic"][is-chapter]:not([is-part])[outputclass ~= 'no-numbering'] > *[class ~= "topic/topic"] {
+    counter-increment: none !important;
+}
+*[class ~= "map/map"][numbering ^= 'deep']
+*[class ~= "topic/topic"][is-chapter]:not([is-part])[outputclass ~= 'no-numbering'] > *[class ~= "topic/topic"] + *[class ~= "topic/topic"] {
+    counter-increment: section1 chapter-and-sections !important;
+}
+/*Modify the font for equations*/
+*[class ~= "equation-d/equation-block"],
+*[class ~= "equation-d/equation-inline"] {
+    font-family: "Neue Haas Unica Pro Light";
+    font-size: 9pt;
+    padding: 1em;
+}
+*/
+
+*[class ~= "topic/table"] > *[class ~= "topic/title"] {
+    color: #BC0D1D;
+    font-family: "Roboto";
+    font-size: 8pt;
+    text-align: center;
+    margin-bottom: 10pt;
+    /*    font-weight: 400;*/
+}
+*[class ~= 'topic/table'] {
+    hyphens: auto;
+}
+*[class ~= 'topic/entry'] {
+    font-size: 8pt;
+    /*    font-weight:300;*/
+    color: #2B3034;
+}
+/**[class~='topic/thead'] > *[class ~= "topic/entry"]{
+    background-color : #BC0D1D;
+    color: #fff;
+    font-size: 9pt;
+    font-weight:400;
+}*/
+
+
+
+
+@font-face {
+    font-family: "Neue Haas Unica Pro Light";
+    src: url("../resources/fonts/NeueHaasUnicaPro-Light.ttf");
+}
+@font-face {
+    font-family: "Neue Haas Unica Pro Medium";
+    src: url("../resources/fonts/NeueHaasUnicaPro-Medium.ttf");
+}
+@font-face {
+    font-family: "Roboto";
+    src: url("../resources/fonts/Roboto-Regular.ttf");
+}
+@font-face {
+    font-family: "Roboto Black";
+    src: url("../resources/fonts/Roboto-Black.ttf");
+}
+
+@page {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    size: A4;
+    margin: 35pt;
+    @top-left {
+        content: none !important;
+        height: 3px;
+    }
+    @top-right {
+        content: none !important;
+        height: 3px;
+    }
+    @bottom-left {
+        content: '\A0\A0\A0';
+        border-top: 4px solid #BC0D1D;
+    }
+    @bottom-center {
+        content: string(maptitle) " - Geldig van dd/mm/yyyy tot dd/mm/yyyy - " counter(page) "/" counter(pages);
+        font-family: "Neue Haas Unica Pro Light";
+        font-size: 8pt;
+        font-weight: 300;
+        white-space: nowrap;
+        border-top: 4px solid #BC0D1D;
+    }
+    @bottom-right {
+        content: '\A0\A0\A0';
+        border-top: 4px solid #2B3034;
+    }
+}
+/*@page :left{
+    @top-left{
+        content: none !important;
+        height: 3px;
+    }
+    @bottom-left{
+        content: '\A0\A0\A0';
+        border-top: 4px solid #BC0D1D;
+    }
+    @bottom-center{
+        content: string(maptitle) " - Geldig van dd/mm/yyyy tot dd/mm/yyyy - " counter(page) "/" counter(pages);
+        font-family: "Neue Haas Unica Pro Light";
+        font-size:8pt;
+        font-weight:300;
+        white-space:nowrap;
+        border-top: 4px solid #BC0D1D;
+    }
+    @bottom-right{ 
+        content: '\A0\A0\A0';
+        border-top: 4px solid #2B3034;
+    }
+}
+@page :right{
+    @top-right{
+        content: none !important;
+        height: 3px;      
+    }
+    @bottom-left{
+        content: '\A0\A0\A0';
+        border-top: 4px solid #BC0D1D;
+    }
+    @bottom-center{
+        content: string(maptitle) " - Geldig van dd/mm/yyyy tot dd/mm/yyyy - " counter(page) "/" counter(pages);
+        font-family: "Neue Haas Unica Pro Light";
+        font-size:9pt;
+        font-weight:300;
+        white-space:nowrap;
+        border-top: 4px solid #BC0D1D;
+    }
+    @bottom-right{ 
+        content: '\A0\A0\A0';
+        border-top: 4px solid #2B3034;
+    }
+}*/
+
+@page atgcover-page {
+    /*@top-left {
+        content: none !important;
+    }
+    @top-right {
+        content: none !important;
+    }*/
+    @bottom-left {
+        content: none !important;
+        display: none;
+    }
+    @bottom-right {
+        content: none !important;
+        display: none;
+    }
+    @bottom-center {
+        content: none !important;
+        display: none;
+    }
+    margin: 0 !important;
+    padding: 0 !important;
+    padding-top: 15px !important;
+    padding-bottom: 0 !important;
+    /*    xslt-template: showallproducts;*/
+}
+@page introduction-page {
+    /*@top-left {
+        content: none !important;
+    }
+    @top-right {
+        content: none !important;
+    }*/
+    background-image: url('../resources/img/greyGradientBackground.png');
+    background-repeat: no-repeat;
+    background-size: 54% 100%;
+    background-position: left top;
+}
+@page signature-page {
+    /*@top-left {content: none !important;}
+    @top-right {content: none !important;}*/
+    /*@bottom-left {content: none !important;}
+    @bottom-right {content: none !important;}
+    @bottom-center {content: none !important;}*/
+    margin: 60px !important;
+    margin-top: 140px !important;
+    padding: 0;
+    padding-top: 0px !important;
+    padding-bottom: 0 !important;
+}
+@page last-page {
+    /*@top-left {content: none !important;}
+    @top-right {content: none !important;}*/
+    @bottom-left {
+        content: none !important;
+    }
+    @bottom-right {
+        content: none !important;
+    }
+    @bottom-center {
+        content: none !important;
+    }
+    margin: 60px !important;
+    margin-top: 140px !important;
+    padding: 0;
+    padding-top: 0px !important;
+    padding-bottom: 0 !important;
+}
+/*@template {
+  name: showallproducts;
+  match: ph[@keyref='product_name'];
+}*/
+
+/* TEMPLATE PAGES */
+#ubatc_coverpage,
+#unique_1 {
+    page: atgcover-page;
+    /*    display: block;*/
+}
+#ubatc_introductionpage,
+#unique_2 {
+    page: introduction-page;
+    /*    display: block;*/
+}
+#finishing_signaturepage_fr,
+#unique_7 {
+    page: signature-page;
+    /*    display: block;*/
+}
+#ubatc_lastpage,
+#unique_8 {
+    page: last-page;
+    /*    display: block;*/
+}
+
+
+/*-------------------------------------------------------------------------*/
+
+/*GENERALITIES*/
+* {
+    font-family: "Neue Haas Unica Pro Light";
+    line-height: 1.4;
+}
+.redubatc {
+    color: #BC0D1D;
+}
+.whitefont {
+    color: #fff;
+}
+.uppercase {
+    text-transform: uppercase;
+}
+.bold {
+    font-weight: 800;
+}
+.linebreakafter:after {
+    content: " mm \a";
+    white-space: pre;
+}
+ul .no-indentation,
+li.no-indentation {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+
+
+
+/* TITLES */
+/*.topictitle1:first-of-type{
+    page-break-before: avoid;
+}*/
+.topictitle1,
+.topictitle1 .title-wrapper,
+.topichead {
+    color: #BC0D1D;
+    font-family: "Roboto Black" !important;
+    font-size: 14pt !important;
+    /*    font-weight: 700 !important;*/
+    page-break-before: always;
+}
+#ubatc_introductionpage .topictitle1,
+#unique_2 .topictitle1 {
+    page-break-before: avoid;
+}
+/*#finishing_signaturepage_fr .topictitle1,
+#unique_7 .topictitle1{
+    page-break-before: avoid;
+}
+#ubatc_lastpage .topictitle1,
+#unique_8 .topictitle1{
+    page-break-before: avoid;
+}*/
+.topictitle2,
+.topictitle2 .title-wrapper {
+    color: #BC0D1D !important;
+    font-family: "Roboto" !important;
+    font-size: 12pt !important;
+    /*    font-weight: 600;*/
+}
+.topictitle3,
+.topictitle3 .title-wrapper {
+    color: #BC0D1D !important;
+    font-family: "Roboto" !important;
+    font-size: 10pt !important;
+    /*    font-weight: 500 !important;*/
+}
+.topictitle4,
+.topictitle4 .title-wrapper {
+    color: #BC0D1D !important;
+    font-family: "Roboto" !important;
+    font-size: 9pt !important;
+    /*    font-weight: 400 !important;*/
+}
+.topichead .subtopic {
+    page-break-after: always;
+}
+
+
+/* PARAGRAPHS */
+*[class ~= 'topic/p'] {
+    font-size: 9pt;
+    font-weight: 300;
+    color: #2B3034;
+    text-align: justify;
+}
+
+/* LISTS */
+*[class ~= 'topic/ul'] > *[class ~= 'topic/li'] {
+    font-size: 9pt;
+    font-weight: 300;
+    color: #2B3034;
+    font-family: "Neue Haas Unica Pro Light";
+    line-height: 1.4;
+}
+*[class ~= 'topic/ul'] {
+    page-break-inside: avoid;
+}
+
+/* NOTES */
+*[class ~= 'topic/note'] {
+    font-size: 8pt;
+    font-weight: 300;
+    color: #2B3034;
+}
+
+/* FOOTNOTES */
+*[class ~= 'topic/fn'] {
+    font-size: 7pt;
+    font-style: italic;
+    color: #2B3034;
+}
+
+/* TABLES */
+.title-column {
+    background-color: #e7e7e7;
+    color: #2B3034;
+    font-size: 8pt;
+    font-weight: 500;
+}
+/* Avoid page-break inside table */
+*[class ~= "topic/table"] {
+    page-break-inside: avoid;
+}
+
+/* TABLE FOOTNOTES */
+/* Customize footnote calls, inside the table. */
+*[outputclass ~= 'table-fn-call'] {
+    color: #2B3034;
+    text-decoration: none;
+    font-size: smaller;
+    vertical-align: super;
+    line-height: unset;
+}
+/* Hide the "on page .." text that follows xrefs. */
+*[outputclass ~= 'table-fn-call']:after {
+    display: none;
+}
+/* Customize the list containing all the table footnotes. */
+*[outputclass ~= 'table-fn-container'] {
+    /* border-top: 1pt solid black; */
+    width: 40vw !important;
+    overflow-wrap: break-word;
+    padding: 5px;
+}
+/* Customize footnotes display, below the table. */
+*[outputclass ~= 'table-fn'] {
+    font-size: 7pt;
+    font-style: italic;
+    color: #2B3034;
+}
+*[outputclass ~= 'table-fn']::marker {
+    font-size: 7pt;
+    font-style: italic;
+    color: #2B3034;
+}
+/* Customize xrefs pointing to footnotes with IDs. */
+*[class ~= "topic/table"] *[class ~= "topic/xref"][type = 'fn'] {
+    color: unset;
+    text-decoration: none;
+}
+*[class ~= "topic/table"] *[class ~= "topic/xref"][type = 'fn']:after {
+    content: none;
+}
+*[class ~= "topic/table"] *[class ~= "topic/xref"][type = 'fn'] *[class ~= "hi-d/sup"]:before {
+    content: "(";
+}
+*[class ~= "topic/table"] *[class ~= "topic/xref"][type = 'fn'] *[class ~= "hi-d/sup"]:after {
+    content: ")";
+}
+
+
+
+/* EQUATIONS */
+.equation-block {
+    font-family: "Neue Haas Unica Pro Light";
+    font-size: 9pt !important;
+    padding: 5px;
+}
+.mathml mn,
+.mathml m0,
+.mathml mi {
+    padding: 5px !important;
+    font-family: "Neue Haas Unica Pro Light";
+    font-size: 9pt;
+}
+.mathml mfrac {
+    padding-inline-start: 5px;
+    padding-inline-end: 5px;
+}
+
+/*-------------------------------------------------------------------------*/
+
+/* UBATC COVER PAGE */
+#ubatc_coverpage,
+#unique_1 {
+    /*    page-break-after: always;*/
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+#ubatc_coverpage .tablecover,
+#unique_1 .tablecover {
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-spacing: 0 !important;
+}
+#ubatc_coverpage .title_first_page,
+#unique_1 .title_first_page {
+    text-align: center;
+    background-color: #BC0D1D;
+    color: #fff !important;
+    font-size: 18pt !important;
+    font-weight: 700 !important;
+    padding: 10pt;
+    margin-bottom: 20pt;
+}
+/*  .first_page .header entry{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;        
+} */
+#ubatc_coverpage .coverpage_family,
+#unique_1 .coverpage_family {
+    font-size: 12pt;
+    font-family: "Neue Haas Unica Pro Light";
+    color: #2B3034;
+    text-align: center;
+    padding: 6pt 0 6pt 0;
+    text-transform: uppercase;
+}
+#ubatc_coverpage .reducedlinespacing,
+#unique_1 .reducedlinespacing {
+    line-height: 1.5 !important;
+    margin: 0;
+    padding: 0;
+}
+#ubatc_coverpage  .coverpage_tradename ,
+#unique_1 .coverpage_tradename  {
+    font-size: 14pt !important;
+    font-family: "Roboto" !important;
+    color: #2B3034 !important;
+    text-align: center !important;
+    font-weight: 700 !important;
+}
+#ubatc_coverpage .coverpage_validity,
+#unique_1 .coverpage_validity {
+    font-size: 14pt;
+    font-family: "Neue Haas Unica Pro Light";
+    color: #2B3034;
+    text-align: center;
+}
+#ubatc_coverpage .coverpage_holdercoord,
+#unique_1 .coverpage_holdercoord {
+    font-size: 10pt;
+    font-family: "Neue Haas Unica Pro Light";
+    color: #fff;
+}
+#ubatc_coverpage .coverpage_holdertitle,
+#unique_1 .coverpage_holdertitle {
+    font-size: 10pt;
+    font-family: "Roboto";
+    font-weight: 700;
+    color: #fff;
+}
+#ubatc_coverpage .cellubatclogo,
+#unique_1 .cellubatclogo {
+    height: 3.6cm;
+    margin: 0;
+    /*    margin-top: 45px !important;*/
+    padding: 0;
+    /*    padding-top:20px;*/
+}
+#ubatc_coverpage .cellimageatg,
+#unique_1 .cellimageatg {
+    height: 5.8cm;
+    margin: 0;
+    padding: 0;
+}
+#ubatc_coverpage .celldomain,
+#unique_1 .celldomain {
+    height: 0.8cm;
+    margin: 0;
+    padding: 0;
+}
+#ubatc_coverpage .cellfamily,
+#unique_1 .cellfamily {
+    height: 1.3cm;
+    margin: 0;
+    padding: 0;
+}
+#ubatc_coverpage .cellproductname,
+#unique_1 .cellproductname {
+    height: 4.8cm;
+    margin: 0 auto 0 auto;
+    padding: 0;
+    text-align: center;
+}
+#ubatc_coverpage .cellvalidity,
+#unique_1 .cellvalidity {
+    height: 2.3cm;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+}
+#ubatc_coverpage .cellatgholder,
+#unique_1 .cellatgholder {
+    min-height: 6cm;
+    background-color: #2B3034;
+    color: #FFF;
+}
+#ubatc_coverpage .cellqr,
+#unique_1 .cellqr {
+    background-color: #F2F2F2;
+    min-height: 3.5cm;
+    padding-left: 0;
+    padding-right: 0;
+}
+#ubatc_coverpage .qrcode,
+#unique_1 .qrcode {
+    padding-right: 30px;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+/*.first_page .qrcode::after{
+    content: "\A Scannez ce code pour consulter \A le texte en ligne";
+    font-size:6pt;
+    font-style : italic;
+    color: #2B3034;
+    white-space: pre-wrap;
+}*/
+/*#ubatc_coverpage .domain{
+    text-transform: uppercase;
+    font-size: 12pt !important;
+    font-weight: 500 !important;
+    padding-top: 20px !important;
+}
+#ubatc_coverpage .refatg{
+    font-size: 16pt;
+    font-weight: 700;    
+}
+#ubatc_coverpage .productname{
+    font-size: 14pt !important;
+    font-weight: 700 !important;
+    padding: 30px !important;
+}*/
+#ubatc_coverpage .contact,
+#unique_1 .contact {
+    background-color: #F2F2F2;
+}
+#ubatc_coverpage .contact thead > *[class ~= 'topic/entry'],
+#unique_1 .contact thead > *[class ~= 'topic/entry'] {
+    font-weight: 700 !important;
+}
+#ubatc_coverpage .contact tbody > *[class ~= 'topic/entry'],
+#unique_1 .contact tbody > *[class ~= 'topic/entry'] {
+    padding: 0 !important;
+}
+
+/* .first_page .contact tbody{
+    border-spacing:2px;
+} */
+
+/* UBATC INTRODUCTION PAGE */
+#ubatc_introductionpage,
+#unique_2 {
+    page-break-after: always;
+}
+#ubatc_introductionpage .operatortype,
+#unique_2 .operatortype {
+    font-family: Roboto;
+    font-size: 9pt;
+    font-weight: 900;
+    color: #BC0D1D;
+    ;
+}
+#ubatc_introductionpage .logooperator,
+#unique_2 .logooperator {
+    vertical-align: bottom;
+}
+#ubatc_introductionpage .operatorname,
+#unique_2 .operatorname {
+    font-family: "Neue Haas Unica Pro Medium";
+    font-size: 9pt;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+#ubatc_introductionpage .cellpadding_leftcol,
+#unique_2 .cellpadding_leftcol {
+    padding-left: 0px;
+    padding-right: 50px;
+}
+#ubatc_introductionpage .cellpadding_rightcol,
+#unique_2 .cellpadding_rightcol {
+    padding-left: 50px;
+    padding-right: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#ubatc_introductionpage .extratopmargin,
+#unique_2 .extratopmargin {
+    padding-top: 50px;
+}
+#ubatc_introductionpage table .reducedlinespacing,
+#unique_2 table .reducedlinespacing {
+    line-height: 1.5 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* UBATC CONDITIONS */
+#ubatc_conditions,
+#unique_6 {
+    /*    page-break-after: always;*/
+    page-break-before: always;
+}
+#ubatc_conditions .condition_numbering,
+#unique_6 .condition_numbering {
+    font-family: "Roboto Black" !important;
+    font-size: 9pt !important;
+    vertical-align: top !important;
+    text-align: left !important;
+    color: #BC0D1D;
+}
+#ubatc_conditions .condition_numbering p,
+#unique_6 .condition_numbering p {
+    font-family: "Roboto Black" !important;
+    font-size: 9pt !important;
+    vertical-align: top !important;
+    text-align: left !important;
+    color: #BC0D1D;
+}
+#ubatc_conditions li,
+#unique_6 li {
+    font-family: "Neue Haas Unica Pro Light";
+    font-size: 9pt;
+}
+
+/* UBATC SIGNATURE PAGE */
+/*#finishing_signaturepage_fr,
+#unique_7{
+    page-break-after: always;
+}*/
+#finishing_signaturepage_fr .rightaligned p,
+#unique_7 .rightaligned p {
+    text-align: right;
+    width: 100%;
+}
+/*#finishing_signaturepage_fr div.rightaligned{
+    margin-left:2.42cm;
+}*/
+#finishing_signaturepage_fr div.rightaligned table,
+#unique_7 div.rightaligned table {
+    margin-left: 2.42cm;
+    background-color: #EAEAEA;
+}
+
+#finishing_signaturepage_fr div.rightaligned table .extrarowheight,
+#unique_7 div.rightaligned table .extrarowheight {
+    height: 3cm;
+}
+#finishing_signaturepage_fr table b,
+#unique_7 table b {
+    font-weight: 800;
+}
+#finishing_signaturepage_fr table .centeraligned p,
+#unique_7 table .centeraligned p {
+    text-align: center;
+}
+
+/* UBATC LAST PAGE */
+#ubatc_lastpage table p,
+#unique_8 table p {
+    font-size: 10pt !important;
+    line-height: 1;
+}
+#ubatc_lastpage table p.bold,
+#unique_8 table p.bold {
+    font-family: "Neue Haas Unica Pro Medium";
+}
+#ubatc_lastpage div.centeraligned p.centeraligned,
+#unique_8 div.centeraligned p.centeraligned {
+    text-align: center;
+}
+#ubatc_lastpage .ubatcfullname,
+#unique_8 .ubatcfullname {
+    font-family: "Roboto" !important;
+    font-size: 11pt !important;
+}
+
+/*-------------------------------------------------------------------------*/
+
+/* OTHER CUSTOMIZATION */
+.indent_list {
+    margin-left: 18pt;
+}
+.centered {
+    margin-left: 7%;
+    margin-right: 7%;
+}
+.centeraligned {
+    text-align: center;
+}
+.centeraligned table {
+    margin-left: auto;
+    margin-right: auto;
+}
+.leftaligned {
+    margin-left: 0;
+    margin-right: 50%
+}
+.centeredcell {
+    text-align: center;
+}
+.margintop30 {
+    margin-top: 80px;
+}
+.marginbottom30 {
+    margin-bottom: 80px;
+}
+.marginbottom120 {
+    margin-bottom: 120px;
+}
+.indent {
+    padding-left: 20px;
+}
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+.centeredimg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.addinfo {
+    width: 37%;
+    position: absolute;
+    right: 0;
+    /*top: -275px;
+    margin-bottom: -275px;*/
+    transform: translate(0px, -230px);
+}
+.addinfo table {
+    width: 80%;
+}
+.addinfo > *[class ~= 'topic/entry'] {
+    font-size: 6pt;
+}
+
+/* UBATC APPROVAL OBJECT PAGE */
+.tableau_objetagrement {
+    border: 1px solid #e3e3e3;
+    border-collapse: collapse;
+    width: 90%;
+}
+.tableau_objetagrement td {
+    border: 1px solid #e3e3e3;
+    border-collapse: collapse;
+    padding: 15px;
+    margin: 0;
+    text-align: left;
+    vertical-align: top;
+    font-family: "Neue Haas Unica Pro Light";
+    font-size: 9pt;
+}
+#atgh867_object li {
+    font-family: "Neue Haas Unica Pro Light";
+    font-size: 9pt;
+}
+.ul-aeretedlist li {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: -18px; /* Remove margins */
+}
+.ul-aeretedlist li:not(:last-child) {
+    margin-bottom: 18px;
+}
+.figure_with_legend {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.figure_legende {
+    align-self: center;
+    flex-shrink: 2;
+}
+.figure_legende dl {
+    /*    display:table !important;*/
+    display: flex;
+}
+/*.figure_legende dl dlentry{
+    display: table-row !important;
+}*/
+.figure_legende dl dt {
+    /*    display: table-cell !important;*/
+    display: inline !important;
+    text-align: left !important;
+    vertical-align: top !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.figure_legende dl dt::after {
+    content: " ";
+    white-space: pre;
+}
+.figure_legende dl dd {
+    /*    display: table-cell !important;*/
+    display: inline !important;
+    text-align: left !important;
+    vertical-align: top !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.figure_legende dl dd::after {
+    content: "\a";
+}
+.voorwerp {
+    page-break-after: always;
+}
+

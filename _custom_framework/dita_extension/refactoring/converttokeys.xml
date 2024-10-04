@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Descriptor for the 'Rename element' operation.
+-->
+<refactoringOperationDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oxygenxml.com/ns/xmlRefactoring" id="converttokeys" name="Convert XML from JSON to keys ditamap.">
+    <description>Convert XML from JSON to keys ditamap</description>
+    <script type="XSLT" href="converttokeys.xsl"/>
+    <category>Flow</category>
+</refactoringOperationDescriptor>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<publishing-template>
+    <name>UBAtc</name>
+    <description></description>
+    <pdf>
+        <preview-image file="oxygen-with-colors.png"/>
+        <tags>
+            <tag type="layout">colors</tag>
+            <tag type="color">red</tag>
+            <tag type="color">light</tag>
+        </tags>
+        <resources>
+            <!-- <css file="oxygen-with-colors.css"/>
+            <css file="notes.css"/> -->
+            <css file="ubatc.css"/>
+        </resources>
+        <xslt>
+            <extension 
+                id="com.oxygenxml.pdf.css.xsl.merged2merged"
+                file="../Customization/fo/xsl/ubatc.xsl"/>
+        </xslt>
+    </pdf>
+</publishing-template>
