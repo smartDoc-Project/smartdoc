@@ -1,0 +1,246 @@
+{
+  "document": {
+    "language": "",
+    "domain": "Finishing",
+    "product_family": "Insulation materials",
+    "reference": "ATG Hxxx",
+    "atglogo_link": "",
+    "qrcode_link": "",
+    "holder": {
+      "name": "",
+      "address":{
+        "street": "",
+        "zipcode": "",
+        "city": "",
+        "country": ""
+      },
+      "contact":{
+        "website": "https://",
+        "phone": "",
+        "email": ""
+      }      
+    },
+    "product": [
+      {
+        "product_description": {
+          "Product_name": "",
+          "material": "",
+          "product_type": [
+            ""
+          ],
+          "dimensions": [
+            {
+              "length": 0,
+              "width": 0,
+              "thickness_min": 0,
+              "thickness_max": 0,
+              "thickness_step": 0
+            }
+          ],
+          "edge_finishing":{
+            "straight_edge": false,
+            "tongue_and_groove": false,
+            "shiplap": false
+          },
+          "color": {
+            "fr": "",
+            "nl": "",
+            "en": ""
+          },
+          "finishing upside": {
+            "fr": "",
+            "nl": "",
+            "en": ""
+          },
+          "finishing underside": {
+            "fr": "",
+            "nl": "",
+            "en": ""
+          },
+          "product_composition_pictures": [
+            {
+              "image": ""
+            }
+          ],
+          "product_application": [
+            {
+              "use": "",
+              "related_ATG": false,
+              "ATG_reference": ""
+            }
+          ]
+        },
+        "fabrication process": {
+          "fr": "",
+          "nl": "",
+          "en": ""
+        },
+        "dimensional tolerances": {
+          "length": [
+            {
+              "range": "",
+              "tolerance": ""
+            }
+          ],
+          "width": [
+            {
+              "range": "",
+              "tolerance": ""
+            }
+          ],
+          "Thickness": {
+            "class": "",
+            "details": [
+              {
+                "range": "",
+                "tolerance": ""
+              }
+            ]
+          }
+        },
+        "product_properties": [
+          {
+            "thickness range": [
+              {
+                "min value": 0,
+                "max value": 0,
+                "units": "mm",
+                "tolerance": "",
+                "test method": "NBN EN 823",
+                "comment": ""
+              }
+            ],
+            "squareness": [
+              {
+                "type":"",
+                "max value": 0,
+                "units": "mm/m",
+                "tolerance": "",
+                "test method": "NBN EN 824",
+                "comment": ""
+              }
+            ],
+            "flatness": [
+              {
+                "surface": "<= 75 dm²",
+                "max value": 0,
+                "units": "mm",
+                "tolerance": "",
+                "test method": "NBN EN 825",
+                "comment": "<= 0.75 m²"
+              }
+            ],
+            "dimensional stability": [
+              {
+                "type": "",
+                "value": 0,
+                "units": "%",
+                "tolerance": "",
+                "test method": "NBN EN 1604",
+                "comment": "48 h, 70 °C, 90 % R.H."
+              }
+            ],
+            "density": [
+              {
+                "value": 0,
+                "units": "kg/m³",
+                "tolerance": "",
+                "test method": "",
+                "comment": ""
+              }
+            ],
+            "thermal conductivity": [
+              {
+                "value": 0,
+                "units": "W/mK",
+                "tolerance": "",
+                "test method": "NBN EN 12667",
+                "comment": ""
+              }
+            ],
+            "reaction to fire": [
+              {
+                "value": "",
+                "units": "",
+                "tolerance": "",
+                "test method": "NBN EN 13501-1",
+                "comment": "domaine d’application : substrat Euroclasse A2-s1,d0 ou mieux, épaisseur nominale ≥ 9 mm, densité nominale ≥ 652,5 kg/m³; sans vide ; fixé mécaniquement ; avec ou sans joints horizontales et verticales"
+              }
+            ],
+            "water absorption": [
+              {
+                "type": "",
+                "value": "",
+                "units": "%",
+                "tolerance": "",
+                "test method": "NBN EN 12087",
+                "comment": ""
+              }
+            ],
+            "deformation under compressive load and temperature conditions": [
+              {
+                "type": "",
+                "value": 0,
+                "units": "%",
+                "tolerance": "",
+                "test method": "NBN EN 1605",
+                "comment": "load: 40 kPa - temperature: (70 +/- 1) °C - time: (168 +/- 1) h"
+              }
+            ],
+            "compressive strength": [
+              {
+                "type": "",
+                "requirement": 0,
+                "min value": 0,
+                "units": "kPa",
+                "tolerance": "",
+                "test method": "NBN EN 826",
+                "comment": ""
+              }
+            ],
+            "tensile strength perpendicular to faces": [
+              {
+                "type": "",
+                "requirement": 0,
+                "value": 0,
+                "units": "kPa",
+                "tolerance": "",
+                "test method": "NBN EN 1607",
+                "comment": ""
+              }
+            ],
+            "bending strength": [
+              {
+                "type": "",
+                "requirement":"",
+                "min value": 0,
+                "units": "kPa",
+                "tolerance": "",
+                "test method": "NBN EN 12089 method B",
+                "comment": ""
+              }
+            ]
+          }
+        ],
+        "manufacturing and sales": {
+          "manufacturer": [
+            {
+              "name": "",
+              "city": "",
+              "country": ""
+            }
+          ],
+          "reseller": [
+            {
+              "name": ""
+            }
+          ]
+        },
+        "storage": {
+          "storage life": "",
+          "instructions": ""
+        }
+      }      
+    ]
+  }
+}

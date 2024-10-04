@@ -1,0 +1,346 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "document": {
+      "type": "object",
+      "title": "Approval Document",      
+      "format": "grid-strict",
+      "properties": {
+        "language": {
+          "type": "string",
+          "title": "Language",
+          "id": "document.language",
+          "enum": [
+            "FR",
+            "NL",
+            "EN"
+          ],
+          "options": {
+            "grid_columns": 4,
+            "grid_break": true
+          }
+        },
+        "domain": {
+          "type": "string",
+          "title": "Domain",
+          "id": "document.domain",
+          "enum": [
+            "Finishing"
+          ],
+          "options": {
+            "grid_columns": 12,
+            "grid_break": true
+          }
+        },
+        "product_family": {
+          "type": "string",
+          "title": "Product family",
+          "id": "document.product_family",
+          "enum": [            
+            "Insulation systems - Thermal insulation systems for cavity walls - Factory-made insulation products"
+          ],
+          "options": {
+            "grid_columns": 12,
+            "grid_break": true,
+            "dependencies": {
+              "category": "Finishing"
+            }
+          }
+        },
+        "reference": {
+          "type": "string",
+          "title": "Reference",
+          "id": "document.reference",
+          "options": {
+            "grid_columns": 12,
+            "grid_break": true
+          }
+        },
+        "atglogo_link": {
+          "type": "string",
+          "id": "document.atglogo",
+          "options": {
+            "grid_columns": 9            
+          }
+        },
+        "generate_atglogo":{
+          "format": "button",
+          "options": {
+            "grid_columns": 3,
+            "grid_break": true,
+            "button": {
+                "icon": "image",
+                "text": "Generate image",
+                "align": "left",
+                "action": "generateReferencedAtgIcon"                
+            }
+          }
+        },
+        "qrcode_link": {
+          "type": "string",
+          "id": "document.qrcode",
+          "options": {
+            "grid_columns": 9
+          }          
+        },
+        "generate_qrcode":{
+          "format": "button",
+          "options": {
+            "grid_columns": 3,
+            "grid_break": true,
+            "button": {
+                "icon": "qrcode",
+                "text": "Generate QR code",
+                "align": "left",
+                "action": "generateQrCode"
+            }
+          }
+        },
+        "related_atgh": {
+          "title": "Related ATG/H",
+          "id": "document.related_atgh",
+          "type": "string",
+          "options": {
+            "grid_columns": 12,
+            "grid_break": true
+          }
+        },
+        "holder": {
+          "type": "object",
+          "title": "Approval holder",
+          "properties": {
+            "name": {
+              "type": "string",
+              "title": "Company name"
+            },            
+            "address": {
+              "type": "object",
+              "title": "Address",
+              "format": "grid-strict",
+              "properties": {
+                "street": {
+                    "type": "string",
+                    "title": "Street + Nr",
+                    "options": {
+                      "grid_columns": 12,
+                      "grid_break": true       
+                    }
+                },
+                "zipcode": {
+                    "type": "string",
+                    "title": "Zip code",
+                    "options": {
+                      "grid_columns": 4       
+                    }
+                },
+                "city": {
+                    "type": "string",
+                    "title": "City",
+                    "options": {
+                      "grid_columns": 8,
+                      "grid_break": true        
+                    }
+                },
+                "country": {
+                    "type": "string",
+                    "title": "Country",
+                    "options": {
+                      "grid_columns": 12,
+                      "grid_break": true       
+                    }
+                }
+              },
+              "options": {
+                "disable_collapse": true,
+                "disable_properties": true
+              },
+              "required": ["street", "zipcode", "city", "country"]
+            },
+            "contact": {
+              "type": "object",
+              "title": "Contact information",
+              "properties": {
+                "website": {
+                  "type": "string",
+                  "title": "Web site",
+                  "format": "url"
+                },
+                "phone": {
+                  "type": "string",
+                  "title": "Phone Number"
+                },
+                "email": {
+                  "type": "string",
+                  "title": "Email",
+                  "format": "email"
+                }
+              },
+              "options": {
+                "disable_collapse": true,
+                "disable_properties": true
+              }
+            }
+          }
+        },
+        "product": {
+          "type": "array",
+          "title": "Products",
+          "format": "tabs-top",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "title": "Thermal insulation product",
+            "format": "categories",
+            "headerTemplate": "{{self.product_description.product_name}}",
+            "properties": {
+              "product_description": {
+                "type": "object",
+                "title": "Description",
+                "properties": {
+                  "product_name": {
+                    "type": "string",
+                    "title": "Tradename"
+                  },
+                  "edge_finishing":{
+                    "type": "array",
+                    "title": "Edge finish",
+                    "format": "checkbox",
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "Straight edges",
+                        "Tongue and Groove",
+                        "Rebated (shiplap) edge"
+                      ],
+                      "options": {
+                        "grid_columns": 6
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "product_name",
+                  "edge_finishing"
+                ]
+              },
+              "intended_use": {
+                "type": "object",
+                "title": "Intended use",
+                "properties": {
+                  "cavity_wall_filling":{
+                    "type": "array",
+                    "title": "Cavity wall filling",
+                    "format": "checkbox",
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "Partial",
+                        "Total"
+                      ],
+                      "options": {
+                        "grid_columns": 6
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "required": []
+          }
+        },
+        "installation": {
+          "type": "object",
+          "title": "Installation of the product",
+          "properties": {
+            "specific rules": {
+              "type": "object",
+              "title": "Specific installation rules",
+              "properties": {
+                "fr": {
+                  "type": "string",
+                  "format": "textarea",
+                  "options": {
+                    "grid_columns": 12
+                  }
+                },
+                "nl": {
+                  "type": "string",
+                  "format": "textarea",
+                  "options": {
+                    "grid_columns": 12
+                  }
+                },
+                "en": {
+                  "type": "string",
+                  "format": "textarea",
+                  "options": {
+                    "grid_columns": 12
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "language",
+        "domain",
+        "product_family",
+        "reference",
+        "holder",
+        "product",
+        "installation"
+      ]
+    }
+  },  
+  "definitions": {
+    "address": {
+      "type": "object",
+      "title": "Address",
+      "properties": {
+        "street": {
+          "type": "string",
+          "title": "Street + Nr"
+        },
+        "zipcode": {
+          "type": "string",
+          "title": "Zip code"
+        },
+        "city": {
+          "type": "string",
+          "title": "City"
+        },
+        "country": {
+          "type": "string",
+          "title": "Country"
+        }
+      }
+    },
+    "contact_info": {
+      "type": "object",
+      "title": "Contact information",
+      "properties": {
+        "website": {
+          "type": "string",
+          "title": "Web site",
+          "format": "url"
+        },
+        "phone": {
+          "type": "string",
+          "title": "Phone Number"
+        },
+        "email": {
+          "type": "string",
+          "title": "Email",
+          "format": "email"
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

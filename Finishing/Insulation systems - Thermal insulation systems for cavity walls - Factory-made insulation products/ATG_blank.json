@@ -1,0 +1,43 @@
+{
+  "document": {
+    "language": "",
+    "domain": "Finishing",
+    "product_family": "Insulation systems - Thermal insulation systems for cavity walls - Factory-made insulation products",
+    "reference": "",
+    "atglogo_link": "",
+    "qrcode_link": "",
+    "related_atgh": "",
+    "holder": {
+      "name": "",
+      "address":{
+        "street": "",
+        "zipcode": "",
+        "city": "",
+        "country": ""
+      },
+      "contact":{
+        "website": "https://",
+        "phone": "",
+        "email": ""
+      }      
+    },
+    "product": [
+      {
+        "product_description": {
+          "product_name": "",
+          "edge_finishing": []
+        },
+        "intended_use": {
+          "cavity_wall_filling": []
+        }
+      }
+    ],
+    "installation": {
+      "specific rules": {
+        "fr": "",
+        "nl": "",
+        "en": ""
+      }
+    }
+  }
+}

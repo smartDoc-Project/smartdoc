@@ -1,0 +1,1668 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "document": {
+      "type": "object",
+      "title": "Approval Document",
+      "format": "grid-strict",
+      "properties": {
+        "language": {
+          "type": "string",
+          "title": "Language",
+          "id": "document.language",
+          "enum": [
+            "FR",
+            "NL",
+            "EN"
+          ],
+          "options": {
+            "grid_columns": 4,
+            "grid_break": true
+          }
+        },
+        "domain": {
+          "type": "string",
+          "title": "Domain",
+          "id": "document.domain",
+          "enum": [
+            "Finishing",
+            "Roofs"
+          ],
+          "options": {
+            "grid_columns": 12,
+            "grid_break": true
+          }
+        },
+        "product_family": {
+          "type": "string",
+          "title": "Product family",
+          "id": "document.product_family",
+          "enum": [
+            "Insulation materials",
+            "Insulation systems - Thermal insulation systems for cavity walls - Factory-made insulation products",
+            "other"
+          ],
+          "options": {
+            "grid_columns": 12,
+            "grid_break": true,
+            "dependencies": {
+              "category": "Finishing"
+            }
+          }
+        },
+        "reference": {
+          "type": "string",
+          "title": "Reference",
+          "id": "document.reference",
+          "options": {
+            "grid_columns": 12,
+            "grid_break": true
+          }
+        },
+        "atglogo_link": {
+          "type": "string",
+          "id": "document.atglogo",
+          "options": {
+            "grid_columns": 9            
+          }
+        },
+        "generate_atglogo":{
+          "format": "button",
+          "options": {
+            "grid_columns": 3,
+            "grid_break": true,
+            "button": {
+                "icon": "image",
+                "text": "Generate image",
+                "align": "left",
+                "action": "generateReferencedAtgIcon"                
+            }
+          }
+        },
+        "qrcode_link": {
+          "type": "string",
+          "id": "document.qrcode",
+          "options": {
+            "grid_columns": 9
+          }          
+        },
+        "generate_qrcode":{
+          "format": "button",
+          "options": {
+            "grid_columns": 3,
+            "grid_break": true,
+            "button": {
+                "icon": "qrcode",
+                "text": "Generate QR code",
+                "align": "left",
+                "action": "generateQrCode"
+            }
+          }
+        },
+        "holder": {
+          "type": "object",
+          "title": "Approval holder",
+          "properties": {
+            "name": {
+              "type": "string",
+              "title": "Company name"
+            },            
+            "address": {
+              "type": "object",
+              "title": "Address",
+              "format": "grid-strict",
+              "properties": {
+                "street": {
+                    "type": "string",
+                    "title": "Street + Nr",
+                    "options": {
+                      "grid_columns": 12,
+                      "grid_break": true       
+                    }
+                },
+                "zipcode": {
+                    "type": "string",
+                    "title": "Zip code",
+                    "options": {
+                      "grid_columns": 4       
+                    }
+                },
+                "city": {
+                    "type": "string",
+                    "title": "City",
+                    "options": {
+                      "grid_columns": 8,
+                      "grid_break": true        
+                    }
+                },
+                "country": {
+                    "type": "string",
+                    "title": "Country",
+                    "options": {
+                      "grid_columns": 12,
+                      "grid_break": true       
+                    }
+                }
+              },
+              "options": {
+                "disable_collapse": true,
+                "disable_properties": true
+              },
+              "required": ["street", "zipcode", "city", "country"]
+            },
+            "contact": {
+              "type": "object",
+              "title": "Contact information",
+              "properties": {
+                "website": {
+                  "type": "string",
+                  "title": "Web site",
+                  "format": "url"
+                },
+                "phone": {
+                  "type": "string",
+                  "title": "Phone Number"
+                },
+                "email": {
+                  "type": "string",
+                  "title": "Email",
+                  "format": "email"
+                }
+              },
+              "options": {
+                "disable_collapse": true,
+                "disable_properties": true
+              }
+            }
+          }
+        },
+        "product": {
+          "type": "array",
+          "title": "Products",
+          "format": "tabs-top",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "title": "Thermal insulation product",
+            "format": "categories",
+            "headerTemplate": "{{self.product_description.product_name}}",
+            "properties": {
+              "product_description": {
+                "type": "object",
+                "title": "Description",
+                "properties": {
+                  "product_name": {
+                    "type": "string",
+                    "title": "Tradename"
+                  },
+                  "material": {
+                    "type": "string",
+                    "title": "Material",
+                    "enum": [
+                      "MW",
+                      "XPS",
+                      "PU",
+                      "PIR",
+                      "PF",
+                      "CG"
+                    ]
+                  },
+                  "product_type": {
+                    "type":"object",
+                    "title": "Type",
+                    "format":"grid-strict",
+                    "properties":{
+                      "rigid_panel":{
+                        "type":"boolean",
+                        "title":"Rigid panel",
+                        "format": "checkbox",
+                        "options": {
+                          "grid_columns": 2
+                        }
+                      },
+                      "semi_rigid_panel":{
+                        "type":"boolean",
+                        "title":"Semi-rigid panel",
+                        "format": "checkbox",
+                        "options": {
+                          "grid_columns": 2
+                        }
+                      },
+                      "roll":{
+                        "type":"boolean",
+                        "title":"Roll",
+                        "format": "checkbox",
+                        "options": {
+                          "grid_columns": 2
+                        }
+                      }
+                    }                    
+                  },
+                  "dimensions": {
+                    "type": "array",
+                    "title": "Dimensions",
+                    "format": "table",
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "object",
+                      "format": "grid-strict",
+                      "properties": {
+                        "length": {
+                          "type": "number",
+                          "title": "Length (mm)",
+                          "options": {
+                            "grid_columns": 2
+                          }
+                        },
+                        "width": {
+                          "type": "number",
+                          "title": "Width (mm)",
+                          "options": {
+                            "grid_columns": 2
+                          }
+                        },
+                        "thickness_min": {
+                          "type": "number",
+                          "title": "Thickness min (mm)",
+                          "options": {
+                            "grid_columns": 2
+                          }
+                        },
+                        "thickness_max": {
+                          "type": "number",
+                          "title": "Thickness max (mm)",
+                          "options": {
+                            "grid_columns": 2
+                          }
+                        },
+                        "thickness_step": {
+                          "type": "number",
+                          "title": "Thickness increments (mm)",
+                          "options": {
+                            "grid_columns": 2
+                          }
+                        }
+                      }
+                    },
+                    "options": {
+                      "containerAttributes": {
+                        "class": "my-h4-class"
+                      }
+                    }
+                  },
+                  "edge_finishing":{
+                    "type":"object",
+                    "title": "Edge finishing",
+                    "format":"grid-strict",
+                    "properties":{
+                      "straight_edge":{
+                        "type":"boolean",
+                        "title":"Straight edges",
+                        "format": "checkbox",
+                        "options": {
+                          "grid_columns": 2
+                        }
+                      },
+                      "tongue_and_groove":{
+                        "type":"boolean",
+                        "title":"Tongue and Groove",
+                        "format": "checkbox",
+                        "options": {
+                          "grid_columns": 2
+                        }
+                      },
+                      "shiplap":{
+                        "type":"boolean",
+                        "title":"Rebated (shiplap) edge",
+                        "format": "checkbox",
+                        "options": {
+                          "grid_columns": 2
+                        }
+                      }
+                    }                    
+                  },
+                  "tongue_and_groove_details":{
+                    "type": "object",
+                    "title": "Tongue and groove assembly details",
+                    "description": "<img src='https://app-bw-butgb.azurewebsites.net/img/Insulation product - Tongue and groove details.png' height='150' />",
+                    "properties": {                      
+                      "dimensions":{
+                        "type": "array",
+                        "title": "Dimensions of tongue and groove",
+                        "format": "table",
+                        "items":{
+                          "type": "object",
+                          "properties":{
+                            "panel_thickness":{
+                              "type": "string",
+                              "title": "Thickness of the panel (mm)"
+                            },
+                            "tongue_width":{
+                              "type": "number",
+                              "title": "Width of the tongue (A)"
+                            },
+                            "tongue_thickness":{
+                              "type": "number",
+                              "title": "Thickness of the tongue (D)"
+                            },
+                            "groove_depth":{
+                              "type": "number",
+                              "title": "Depth of the groove (B)"
+                            },
+                            "groove_thickness":{
+                              "type": "number",
+                              "title": "Thickness of the groove (C)"
+                            },
+                            "position_assembly":{
+                              "type": "number",
+                              "title": "Position of tongue and groove (E)"                            
+                            }
+                          }
+                        }                        
+                      }                      
+                    },
+                    "options": {
+                      "dependencies": {
+                        "edge_finishing.tongue_and_groove": true
+                      }
+                    }
+                  },
+                  "shiplap_details":{
+                    "type": "object",
+                    "title": "Shiplap assembly details",
+                    "description": "<img src='https://app-bw-butgb.azurewebsites.net/img/Insulation product - Shiplap details.png' height='150' />",
+                    "properties": {                      
+                      "dimensions":{
+                        "type": "array",
+                        "title": "Dimensions of shiplap assembly",
+                        "format": "table",
+                        "items":{
+                          "type": "object",
+                          "properties":{
+                            "panel_thickness":{
+                              "type": "string",
+                              "title": "Thickness of the panel (mm)"
+                            },
+                            "width_lower_rebated_edge":{
+                              "type": "number",
+                              "title": "Width of the lower rebated edge (A)"
+                            },
+                            "width_higher_rebated_edge":{
+                              "type": "number",
+                              "title": "Width of the higher rebated edge (B)"
+                            },
+                            "thickness_higher_rebated_edge":{
+                              "type": "number",
+                              "title": "Thickness of the higher rebated edge (C)"
+                            },
+                            "thickness_lower_rebated_edge":{
+                              "type": "number",
+                              "title": "Thickness of the lower rebated edge (D)"
+                            }
+                          }
+                        }
+                      }                      
+                    },
+                    "options": {
+                      "dependencies": {
+                        "edge_finishing.shiplap": true
+                      }
+                    }
+                  },
+                  "color": {
+                    "type": "object",
+                    "title": "Color",
+                    "properties": {
+                      "fr": {
+                        "type": "string"
+                      },
+                      "nl": {
+                        "type": "string"
+                      },
+                      "en": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "finishing upside": {
+                    "type": "object",
+                    "title": "Finishing upside",
+                    "properties": {
+                      "fr": {
+                        "type": "string"
+                      },
+                      "nl": {
+                        "type": "string"
+                      },
+                      "en": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "finishing underside": {
+                    "type": "object",
+                    "title": "Finishing underside",
+                    "properties": {
+                      "fr": {
+                        "type": "string"
+                      },
+                      "nl": {
+                        "type": "string"
+                      },
+                      "en": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "product_composition_pictures": {
+                    "type":"array",
+                    "format": "table",
+                    "title": "Picture illustrating the composition of the product",
+                    "items":{
+                      "type": "object",
+                      "title": "Composition picture",
+                      "properties": {
+                        "image": {
+                          "type": "string",
+                          "title":"Composition picture",
+                          "format": "url",
+                          "default": "https://app-bw-butgb.azurewebsites.net/Finishing/Insulation materials/",
+                          "options": {                            
+                            "upload": {
+                              "mime_type":"image/*",
+                              "auto_upload":true,
+                              "upload_handler": "testUploadHandler"
+                            }
+                          },
+                          "links": [
+                            {
+                              "href": "{{self}}",
+                              "rel": "view"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "product_application": {
+                    "type": "array",
+                    "format": "table",
+                    "title": "Possible use of the product",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "use": {
+                          "type": "string",
+                          "title": "Possible use",
+                          "enum": [
+                            "Insulation of cavity walls",
+                            "Roof insulation (between rafters)",
+                            "Roof insulation (sarking)",
+                            "Flat roof insulation (warm roof)",
+                            "Flat roof insulation (cold roof)",
+                            "Flat roof insulation (inverted roof)",
+                            "Floor insulation",
+                            "External thermal insulation of walls",
+                            "Internal thermal insulation of walls",
+                            "Underground wall insulation"
+                          ]
+                        },
+                        "related_ATG": {
+                          "type": "boolean",
+                          "title": "Related ATG ?",
+                          "format":"checkbox",
+                          "options": {
+                            "inputAttributes": {
+                              "class": "centered_checkbox"
+                            }
+                          }                 
+                        },
+                        "ATG_reference": {
+                          "type": "string",
+                          "title": "Reference of related ATG",
+                          "options": {                        
+                            "dependencies": {
+                                "related ATG": true
+                            }
+                          }                            
+                        }                          
+                      },
+                      "required": [
+                        "use"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "product_name",
+                  "material",
+                  "product_type",
+                  "dimensions",
+                  "edge_finishing",
+                  "product_application"
+                ],
+                "propertyOrder": 1,
+                "dependencies": {
+                  "edge_finishing": {
+
+                  }
+                }
+              },
+              "fabrication process": {
+                "type": "object",
+                "title": "Manufacturing process",
+                "properties": {
+                  "fr": {
+                    "type": "string",
+                    "format": "jodit"                
+                  },
+                  "nl": {
+                    "type": "string",
+                    "format": "jodit",
+                    "options": {
+                      "wysiwyg": true
+                    }
+                  },
+                  "en": {
+                    "type": "string",
+                    "format": "jodit",
+                    "options": {
+                      "wysiwyg": true
+                    }
+                  }
+                }
+              },
+              "dimensional tolerances": {
+                "type": "object",
+                "properties": {
+                  "length": {
+                    "type": "array",
+                    "format": "table",
+                    "items": {
+                      "type": "object",
+                      "format": "grid-strict",
+                      "properties": {
+                        "range": {
+                          "type": "string",
+                          "title": "Nominal length range (mm)",
+                          "options": {
+                            "grid_columns": 3
+                          }
+                        },
+                        "tolerance": {
+                          "type": "string",
+                          "title": "Width tolerance",
+                          "options": {
+                            "grid_columns": 3,
+                            "grid_break": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "width": {
+                    "type": "array",
+                    "format": "table",
+                    "items": {
+                      "type": "object",
+                      "format": "grid-strict",
+                      "properties": {
+                        "range": {
+                          "type": "string",
+                          "title": "Nominal width range (mm)",
+                          "options": {
+                            "grid_columns": 3
+                          }
+                        },
+                        "tolerance": {
+                          "type": "string",
+                          "title": "Width tolerance",
+                          "options": {
+                            "grid_columns": 3,
+                            "grid_break": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "Thickness": {
+                    "type": "object",
+                    "properties": {
+                      "class": {
+                        "type": "string",
+                        "title": "Tolerance class defined in the standard",
+                        "enum": [
+                          "T1",
+                          "T2",
+                          "T3"
+                        ]
+                      },
+                      "details": {
+                        "type": "array",
+                        "format": "table",
+                        "items": {
+                          "type": "object",
+                          "format": "grid-strict",
+                          "properties": {
+                            "range": {
+                              "type": "string",
+                              "title": "Nominal thickness range (mm)",
+                              "options": {
+                                "grid_columns": 3
+                              }
+                            },
+                            "tolerance": {
+                              "type": "string",
+                              "title": "Length tolerance",
+                              "options": {
+                                "grid_columns": 3,
+                                "grid_break": true
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "product_properties": {
+                "type": "array",
+                "title": "Product properties",
+                "format": "tabs-top",
+                "items": {
+                  "type": "object",
+                  "title": "Properties set",
+                  "headerTemplate": "Thickness Range {{i1}}",
+                  "properties": {
+                    "thickness range": {
+                      "type": "array",
+                      "title": "Concerned thickness range",
+                      "format": "table",
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "uniqueItems": true,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "min value": {
+                            "type": "number",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "max value": {
+                            "type": "number",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "units": {
+                            "type": "string",
+                            "default": "mm",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-10"
+                              }
+                            }
+                          },
+                          "tolerance": {
+                            "type": "string",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "test method": {
+                            "type": "string",
+                            "default": "NBN EN 823",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "comment": {
+                            "type": "string",
+                            "format": "textarea",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-30"
+                              }
+                            }
+                          }
+                        },
+                        "required": [
+                          "min value",
+                          "max value",
+                          "units"
+                        ]
+                      }
+                    },
+                    "squareness": {
+                      "type": "array",
+                      "title": "Squareness deviation",
+                      "format": "table",
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "uniqueItems": true,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "type":{
+                            "type":"string",
+                            "enum":[
+                              "",
+                              "Sl",
+                              "Sb",
+                              "Sd"
+                            ]
+                          },
+                          "max value": {
+                            "type": "number",
+                            "maximum": 5,
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "units": {
+                            "type": "string",
+                            "default": "mm/m",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-10"
+                              }
+                            }
+                          },
+                          "tolerance": {
+                            "type": "string",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "test method": {
+                            "type": "string",
+                            "default": "NBN EN 824",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "comment": {
+                            "type": "string",
+                            "format": "textarea",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-30"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "max value",
+                        "units"
+                      ]
+                    },
+                    "flatness": {
+                      "type": "array",
+                      "title": "Flatness deviation",
+                      "format": "table",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "surface": {
+                            "type": "string",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "max value": {
+                            "type": "number",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "units": {
+                            "type": "string",
+                            "default": "mm",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-10"
+                              }
+                            }
+                          },
+                          "tolerance": {
+                            "type": "string",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "test method": {
+                            "type": "string",
+                            "default": "NBN EN 825",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "comment": {
+                            "type": "string",
+                            "format": "textarea",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-30"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "value",
+                        "units"
+                      ]
+                    },
+                    "dimensional stability": {
+                      "type": "array",
+                      "format": "table",
+                      "title": "Dimensional stability",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "",
+                              "DS(70,-)",
+                              "DS(70,90)",
+                              "DS(23,90)",
+                              "DS(-20,-)"
+                            ],
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "value": {
+                            "type": "number",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "units": {
+                            "type": "string",
+                            "default": "%",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-10"
+                              }
+                            }
+                          },
+                          "tolerance": {
+                            "type": "string",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "test method": {
+                            "type": "string",
+                            "default": "NBN EN 1604",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "comment": {
+                            "type": "string",
+                            "format": "textarea",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-30"
+                              }
+                            }
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "value",
+                          "units"
+                        ]
+                      }
+                    },
+                    "density": {
+                      "type": "array",
+                      "title": "Density",
+                      "format": "table",
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "uniqueItems": true,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "number",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "units": {
+                            "type": "string",
+                            "default": "kg/m³",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-10"
+                              }
+                            }
+                          },
+                          "tolerance": {
+                            "type": "string",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "test method": {
+                            "type": "string",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "comment": {
+                            "type": "string",
+                            "format": "textarea",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-30"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "value",
+                        "units"
+                      ]
+                    },
+                    "thermal conductivity": {
+                      "type": "array",
+                      "title": "Declared thermal conductivity",
+                      "format": "table",
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "uniqueItems": true,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "number",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "units": {
+                            "type": "string",
+                            "default": "W/mK",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-10"
+                              }
+                            }
+                          },
+                          "tolerance": {
+                            "type": "string",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "test method": {
+                            "type": "string",
+                            "default": "NBN EN 12667",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "comment": {
+                            "type": "string",
+                            "format": "textarea",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-30"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "value",
+                        "units"
+                      ]
+                    },
+                    "reaction to fire": {
+                      "type": "array",
+                      "title": "Reaction to fire",
+                      "format": "table",
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "uniqueItems": true,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "string",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "units": {
+                            "type": "string",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-10"
+                              }
+                            }
+                          },
+                          "tolerance": {
+                            "type": "string",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "test method": {
+                            "type": "string",
+                            "default": "NBN EN 13501-1",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "comment": {
+                            "type": "string",
+                            "format": "textarea",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-30"
+                              }
+                            }
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "units"
+                        ]
+                      }
+                    },
+                    "water absorption": {
+                      "type": "array",
+                      "format": "table",
+                      "title": "Water absorption",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "",
+                              "short term",
+                              "long term"
+                            ],
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "value": {
+                            "type": "string",
+                            "default": "WL(T)1 <= 1",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "units": {
+                            "type": "string",
+                            "default": "%",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-10"
+                              }
+                            }
+                          },
+                          "tolerance": {
+                            "type": "string",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "test method": {
+                            "type": "string",
+                            "default": "NBN EN 12087",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "comment": {
+                            "type": "string",
+                            "format": "textarea",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-30"
+                              }
+                            }
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "value",
+                          "units"
+                        ]
+                      }
+                    },
+                    "deformation under compressive load and temperature conditions": {
+                      "type": "array",
+                      "format": "table",
+                      "title": "Deformation under specified compressive load and temperature conditions",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "",
+                              "DLT(1)5",
+                              "DLT(2)5",
+                              "DLT(3)5"
+                            ],
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "value": {
+                            "type": "number",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "units": {
+                            "type": "string",
+                            "default": "%",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-10"
+                              }
+                            }
+                          },
+                          "tolerance": {
+                            "type": "string",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "test method": {
+                            "type": "string",
+                            "default": "NBN EN 1605",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "comment": {
+                            "type": "string",
+                            "format": "textarea",
+                            "default": "load: 20 kPa - temperature: (80 +/- 1) °C - time: (48 +/- 1) h",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-30"
+                              }
+                            }
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "value",
+                          "units"
+                        ]
+                      }
+                    },                    
+                    "compressive strength": {
+                      "type": "array",
+                      "format": "table",
+                      "title": "Compressive strength",
+                      "minItems": 1,
+                      "uniqueItems": true,
+                      "items": {
+                        "type": "object",
+                        "minProperties": 1,
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "",
+                              "CS(10\\Y)25",
+                              "CS(10\\Y)50",
+                              "CS(10\\Y)100",
+                              "CS(10\\Y)120",
+                              "CS(10\\Y)130",
+                              "CS(10\\Y)140",
+                              "CS(10\\Y)150",
+                              "CS(10\\Y)175",
+                              "CS(10\\Y)200",
+                              "CS(10\\Y)225",
+                              "CS(10\\Y)250"
+                            ],
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "requirement": {
+                            "type": "string",
+                            "default": ">= 25",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "min value": {
+                            "type": "number",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "units": {
+                            "type": "string",
+                            "default": "kPa",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-10"
+                              }
+                            }
+                          },
+                          "tolerance": {
+                            "type": "string",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "test method": {
+                            "type": "string",
+                            "default": "NBN EN 826",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "comment": {
+                            "type": "string",
+                            "format": "textarea",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-30"
+                              }
+                            }
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "requirement",
+                          "min value",
+                          "units"
+                        ]
+                      }
+                    },
+                    "bending strength": {
+                      "type": "array",
+                      "format": "table",
+                      "title": "Bending strength",
+                      "minItems": 1,
+                      "uniqueItems": true,
+                      "items": {
+                        "type": "object",
+                        "minProperties": 1,
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "",
+                              "BS50",
+                              "BS200",
+                              "BS250"
+                            ],
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "requirement": {
+                            "type": "string",
+                            "default": ">= 50",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "min value": {
+                            "type": "number",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "units": {
+                            "type": "string",
+                            "default": "kPa",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-10"
+                              }
+                            }
+                          },
+                          "tolerance": {
+                            "type": "string",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "test method": {
+                            "type": "string",
+                            "enum":[
+                              "NBN EN 12089 method A",
+                              "NBN EN 12089 method B"
+                            ],                            
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "comment": {
+                            "type": "string",
+                            "format": "textarea",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-30"
+                              }
+                            }
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "requirement",
+                          "min value",
+                          "units"
+                        ]
+                      }
+                    },
+                    "tensile strength perpendicular to faces": {
+                      "type": "array",
+                      "format": "table",
+                      "title": "Tensile strength perpendicular to faces",
+                      "minItems": 1,
+                      "uniqueItems": true,
+                      "items": {
+                        "type": "object",
+                        "format": "table",
+                        "minItems": 1,
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "",
+                              "TR40",
+                              "TR50",
+                              "TR60",
+                              "TR70",
+                              "TR80",
+                              "TR90",
+                              "TR100",
+                              "TR150",
+                              "TR200"
+                            ],
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "requirement": {
+                            "type": "string",
+                            "default": ">= 40",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "value": {
+                            "type": "number",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "units": {
+                            "type": "string",
+                            "default": "kPa",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-10"
+                              }
+                            }
+                          },
+                          "tolerance": {
+                            "type": "string",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "test method": {
+                            "type": "string",
+                            "default": "NBN EN 1607",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-15"
+                              }
+                            }
+                          },
+                          "comment": {
+                            "type": "string",
+                            "format": "textarea",
+                            "options": {
+                              "containerAttributes": {
+                                "class": "my-col-30"
+                              }
+                            }
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "propertyOrder": 3
+                }
+              },
+              "manufacturing and sales": {
+                "type": "object",
+                "properties": {
+                  "manufacturer": {
+                    "type": "array",
+                    "title": "Manufacturer",
+                    "items": {
+                      "type": "object",
+                      "headerTemplate": "Production site {{i1}}",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "city": {
+                          "type": "string"
+                        },
+                        "country": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "reseller": {
+                    "type": "array",
+                    "title": "Reseller",
+                    "items": {
+                      "type": "object",
+                      "headerTemplate": "Sales company {{i1}}",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "storage": {
+                "type": "object",
+                "title": "Storage",
+                "properties": {
+                  "storage life": {
+                    "type": "string"
+                  },
+                  "instructions": {
+                    "type": "string",
+                    "format": "textarea"
+                  }
+                }
+              }
+            },
+            "required": [],
+            "options": {
+              "titleHidden": true,
+              "disable_collapse": true,
+              "disable_properties": true
+            }
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "language",
+        "domain",
+        "product_family",
+        "reference",
+        "holder",
+        "product"
+      ]      
+    }
+  },  
+  "definitions": {
+    "address": {
+      "type": "object",
+      "title": "Address",
+      "properties": {
+        "street": {
+          "type": "string",
+          "title": "Street + Nr"
+        },
+        "zipcode": {
+          "type": "string",
+          "title": "Zip code"
+        },
+        "city": {
+          "type": "string",
+          "title": "City"
+        },
+        "country": {
+          "type": "string",
+          "title": "Country"
+        }
+      }
+    },
+    "contact_info": {
+      "type": "object",
+      "title": "Contact information",
+      "properties": {
+        "website": {
+          "type": "string",
+          "title": "Web site",
+          "format": "url"
+        },
+        "phone": {
+          "type": "string",
+          "title": "Phone Number"
+        },
+        "email": {
+          "type": "string",
+          "title": "Email",
+          "format": "email"
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}
