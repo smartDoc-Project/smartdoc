@@ -1,0 +1,456 @@
+{
+  "document": {
+    "language": "FR",
+    "domain": "Finishing",
+    "product_family": "Insulation materials",
+    "reference": "ATG H892",
+    "atglogo_link": "img/ATGH892.svg",
+    "qrcode_link": "img/ATGH892-QR.png",
+    "holder": {
+      "name": "SOPREMA NV",
+      "address": {
+        "street": "Bouwelven 5",
+        "zipcode": "2280",
+        "city": "Grobbendonk",
+        "country": "Belgium"
+      },
+      "contact": {
+        "website": "https://www.soprema.be",
+        "phone": " 32 (0)14 23 07 07",
+        "email": "info@soprema.be"
+      }
+    },
+    "product": [
+      {
+        "product_description": {
+          "product_name": "SOPRA XPS CW",
+          "material": "XPS",
+          "product_type": {
+            "rigid_panel": true,
+            "semi_rigid_panel": false,
+            "roll": false
+          },
+          "dimensions": [
+            {
+              "length": 2500,
+              "width": 600,
+              "thickness_min": 30,
+              "thickness_max": 200,
+              "thickness_step": 10
+            }
+          ],
+          "edge_finishing": {
+            "straight_edge": false,
+            "tongue_and_groove": true,
+            "shiplap": false
+          },
+          "tongue_and_groove_details": {
+            "dimensions": [
+              {
+                "panel_thickness": "30",
+                "tongue_width": 10,
+                "tongue_thickness": 10,
+                "groove_depth": 11,
+                "groove_thickness": 11,
+                "position_assembly": 15
+              },
+              {
+                "panel_thickness": "40",
+                "tongue_width": 15,
+                "tongue_thickness": 20,
+                "groove_depth": 16,
+                "groove_thickness": 21,
+                "position_assembly": 20
+              }
+            ]
+          },
+          "color": {
+            "fr": "orange pâle",
+            "nl": "",
+            "en": ""
+          },
+          "finishing upside": {
+            "fr": "Avec peau d'extrusion",
+            "nl": "",
+            "en": ""
+          },
+          "finishing underside": {
+            "fr": "Avec peau d'extrusion",
+            "nl": "",
+            "en": ""
+          },
+          "product_composition_pictures": [
+            {
+              "image": "https://app-bw-butgb.azurewebsites.net/Finishing/Insulation materials/ATG H892/img/SopraXPS-CW-Composition.png"
+            }
+          ],
+          "product_application": [
+            {
+              "use": "Insulation of cavity walls",
+              "related_ATG": true,
+              "ATG_reference": "ATG 3114"
+            }
+          ]
+        },
+        "fabrication process": {
+          "fr": "<p>Les panneaux sont composés d'une mousse rigide monochouche ou multicouche de polystyrène extrudé à structure cellulaire fermée, utilisant le CO<sub>2</sub> comme agent gonflant. Par l'extrusion, les surfaces des panneaux prennent un aspect lisse.</p>",
+          "nl": "",
+          "en": ""
+        },
+        "dimensional tolerances": {
+          "length": [
+            {
+              "range": "<= 1500",
+              "tolerance": " /- 8 mm"
+            },
+            {
+              "range": "> 1500",
+              "tolerance": " /- 10 mm"
+            }
+          ],
+          "width": [
+            {
+              "range": "<= 1500",
+              "tolerance": " /- 8 mm"
+            },
+            {
+              "range": "> 1500",
+              "tolerance": " /- 10 mm"
+            }
+          ],
+          "Thickness": {
+            "class": "T1",
+            "details": [
+              {
+                "range": "d < 50",
+                "tolerance": " /-2 mm"
+              },
+              {
+                "range": "50 <= d <= 120",
+                "tolerance": "-2 mm /  3 mm"
+              },
+              {
+                "range": "120 < d <= 280",
+                "tolerance": "-2 mm /  6 mm"
+              }
+            ]
+          }
+        },
+        "product_properties": [
+          {
+            "thickness range": [
+              {
+                "min value": 30,
+                "max value": 80,
+                "units": "mm",
+                "tolerance": "",
+                "test method": "NBN EN 823",
+                "comment": ""
+              }
+            ],
+            "squareness": [
+              {
+                "type":"",
+                "max value": 5,
+                "units": "mm/m",
+                "tolerance": "",
+                "test method": "NBN EN 824",
+                "comment": ""
+              }
+            ],
+            "flatness": [
+              {
+                "surface": "",
+                "max value": 6,
+                "units": "mm/m",
+                "tolerance": "",
+                "test method": "NBN EN 825",
+                "comment": ""
+              }
+            ],
+            "dimensional stability": [
+              {
+                "type": "DS(70,90)",
+                "value": 5,
+                "units": "%",
+                "tolerance": "",
+                "test method": "NBN EN 1604",
+                "comment": ""
+              }
+            ],
+            "density": [
+              {
+                "value": 0,
+                "units": "kg/m³",
+                "tolerance": "",
+                "test method": "",
+                "comment": ""
+              }
+            ],
+            "thermal conductivity": [
+              {
+                "value": 0.033,
+                "units": "W/mK",
+                "tolerance": "",
+                "test method": "NBN EN 12667",
+                "comment": ""
+              }
+            ],
+            "reaction to fire": [
+              {
+                "value": "",
+                "units": "",
+                "tolerance": "",
+                "test method": "NBN EN 13501-1",
+                "comment": ""
+              }
+            ],
+            "water absorption": [
+              {
+                "type": "long term",
+                "value": "WL(T)0.7 <= 0.7",
+                "units": "%",
+                "tolerance": "",
+                "test method": "NBN EN 12087",
+                "comment": ""
+              }
+            ],
+            "deformation under compressive load and temperature conditions": [
+              {
+                "type": "DLT(2)5",
+                "value": 5,
+                "units": "%",
+                "tolerance": "",
+                "test method": "NBN EN 1605",
+                "comment": "load: 20 kPa - temperature: (80  /- 1) °C - time: (48  /- 1) h"
+              }
+            ],
+            "compressive strength": [
+              {
+                "type": "CS(10\\Y)250",
+                "requirement": 250,
+                "min value": 250,
+                "units": "kPa",
+                "tolerance": "",
+                "test method": "NBN EN 826",
+                "comment": ""
+              }
+            ],
+            "tensile strength perpendicular to faces": [
+              {
+                "type": "TR200",
+                "requirement": 200,
+                "value": 200,
+                "units": "kPa",
+                "tolerance": "",
+                "test method": "NBN EN 1607",
+                "comment": ""
+              }
+            ],
+            "bending strength": [
+              {
+                "type": "",
+                "requirement":"",
+                "min value": 0,
+                "units": "kPa",
+                "tolerance": "",
+                "test method": "NBN EN 12089 method B",
+                "comment": ""
+              }
+            ]
+          }
+        ],
+        "manufacturing and sales": {
+          "manufacturer": [
+            {
+              "name": "SOPREMA NV",
+              "city": "Tongres",
+              "country": "Belgium"
+            }
+          ],
+          "reseller": [
+            {
+              "name": "SOPREMA NV"
+            }
+          ]
+        },
+        "storage": {
+          "storage life": "",
+          "instructions": ""
+        }
+      },
+      {
+        "product_description": {
+          "product_name": "SOPRA XPS PM",
+          "material": "XPS",
+          "product_type": {
+            "rigid_panel": true,
+            "semi_rigid_panel": false,
+            "roll": false
+          },
+          "dimensions": [
+            {
+              "length": 1250,
+              "width": 600,
+              "thickness_min": 30,
+              "thickness_max": 200,
+              "thickness_step": 10
+            }
+          ],
+          "edge_finishing": {
+            "straight_edge": false,
+            "tongue_and_groove": true,
+            "shiplap": false
+          },
+          "tongue_and_groove_details": {
+            "dimensions": []
+          },
+          "color": {
+            "fr": "",
+            "nl": "",
+            "en": ""
+          },
+          "finishing upside": {
+            "fr": "",
+            "nl": "",
+            "en": ""
+          },
+          "finishing underside": {
+            "fr": "",
+            "nl": "",
+            "en": ""
+          },
+          "product_composition_pictures": [],
+          "product_application": []
+        },
+        "fabrication process": {
+          "fr": "<p>Les panneaux sont composés d'une mousse rigide monochouche ou multicouche de polystyrène extrudé à structure cellulaire fermée, utilisant le CO<sub>2</sub> comme agent gonflant. Par l'extrusion, les surfaces des panneaux prennent un aspect lisse.</p>",
+          "nl": "",
+          "en": ""
+        },
+        "dimensional tolerances": {
+          "length": [
+            {
+              "range": "<= 1500",
+              "tolerance": " /- 8 mm"
+            },
+            {
+              "range": "> 1500",
+              "tolerance": " /- 10 mm"
+            }
+          ],
+          "width": [
+            {
+              "range": "<= 1500",
+              "tolerance": " /- 8 mm"
+            },
+            {
+              "range": "> 1500",
+              "tolerance": " /- 10 mm"
+            }
+          ],
+          "Thickness": {
+            "class": "T1",
+            "details": []
+          }
+        },
+        "product_properties": [
+          {
+            "thickness range": [
+              {
+                "min value": 0,
+                "max value": 0,
+                "units": "mm",
+                "tolerance": "",
+                "test method": "NBN EN 823",
+                "comment": ""
+              }
+            ],
+            "squareness": [
+              {
+                "type":"",
+                "max value": 0,
+                "units": "mm/m",
+                "tolerance": "",
+                "test method": "NBN EN 824",
+                "comment": ""
+              }
+            ],
+            "flatness": [],
+            "dimensional stability": [],
+            "density": [
+              {
+                "value": 0,
+                "units": "kg/m³",
+                "tolerance": "",
+                "test method": "",
+                "comment": ""
+              }
+            ],
+            "thermal conductivity": [
+              {
+                "value": 0,
+                "units": "W/mK",
+                "tolerance": "",
+                "test method": "NBN EN 12667",
+                "comment": ""
+              }
+            ],
+            "reaction to fire": [
+              {
+                "value": "",
+                "units": "",
+                "tolerance": "",
+                "test method": "NBN EN 13501-1",
+                "comment": ""
+              }
+            ],
+            "water absorption": [],
+            "deformation under compressive load and temperature conditions": [],
+            "compressive strength": [
+              {
+                "type": "",
+                "requirement": 25,
+                "min value": 0,
+                "units": "kPa",
+                "tolerance": "",
+                "test method": "NBN EN 826",
+                "comment": ""
+              }
+            ],
+            "tensile strength perpendicular to faces": [
+              {
+                "type": "",
+                "requirement": 40,
+                "value": 0,
+                "units": "kPa",
+                "tolerance": "",
+                "test method": "NBN EN 1607",
+                "comment": ""
+              }
+            ],
+            "bending strength": [
+              {
+                "type": "",
+                "requirement":"",
+                "min value": 0,
+                "units": "kPa",
+                "tolerance": "",
+                "test method": "NBN EN 12089 method B",
+                "comment": ""
+              }
+            ]
+          }
+        ],
+        "manufacturing and sales": {
+          "manufacturer": [],
+          "reseller": []
+        },
+        "storage": {
+          "storage life": "",
+          "instructions": ""
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+﻿{
+    "lang": {
+        "fr": {
+            "Finishing": "Parachèvement",
+            "FINISHING": "PARACHEVEMENT",
+            "Thermal insulation product": "Produit d'isolation thermique",
+            "THERMAL INSULATION PRODUCT": "PRODUIT D'ISOLATION THERMIQUE",
+            "Rigid panel": "Panneau rigide",
+            "Thickness": "Epaisseur",
+            "Thickness range":"Gamme d'épaisseur",
+            "thickness range": "gamme d'épaisseur",
+            "squareness": "équerrage",
+            "flatness": "planéité",
+            "dimensional stability": "stabilité dimensionnelle",
+            "density":"densité",
+            "thermal conductivity": "conductivité thermique",
+            "reaction to fire": "réaction au feu",
+            "water absorption": "absorption d'eau",
+            "deformation under compressive load and temperature conditions": "déformation sous compression et température",
+            "compressive strength":"résistance à la compression",
+            "tensile strength perpendicular to faces": "résistance à la traction perpendiculaire"        
+        },
+        "nl": {
+            "Finishing": "Afwerking",
+            "Thermal insulation product": "",
+            "Rigid panel": "",
+            "Thickness": "Dikte",
+            "Thickness range":"",
+            "squareness":"",
+            "flatness": "",
+            "dimensional stability": "",
+            "density":"",
+            "thermal conductivity": "",
+            "reaction to fire": "",
+            "water absorption": "",
+            "deformation under compressive load and temperature conditions": "",
+            "compressive strength": "",
+            "tensile strength perpendicular to faces": ""
+        }
+    }
+}
+

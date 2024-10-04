@@ -1,0 +1,47 @@
+{
+  "document": {
+    "language": "FR",
+    "domain": "Finishing",
+    "product_family": "Insulation systems - Thermal insulation systems for cavity walls - Factory-made insulation products",
+    "reference": "ATG 2654",
+    "atglogo_link": "",
+    "qrcode_link": "",
+    "related_atgh": "ATG H706",
+    "holder": {
+      "name": "Kingspan Insulation bv",
+      "address":{
+      	"street": "Lorentzstraat 1",
+  	    "zipcode": "7102 JH",
+  	    "city": "Winterswijk",
+  	    "country": "Netherlands"	
+      },
+      "contact":{
+      	"website": "https://www.kingspaninsulation.nl",
+      	"phone": "+31 (0)543 543 210",
+      	"email": "info@kingspaninsulation.nl"
+      }      
+    },
+    "product": [
+      {
+        "product_description": {
+          "product_name": " KoolTherm K8 D",
+          "edge_finishing": [
+            "Rebated (shiplap) edge"
+          ]
+        },
+        "intended_use": {
+          "cavity_wall_filling": [
+            "Partial"
+          ]
+        }
+      }
+    ],
+    "installation": {
+      "specific rules": {
+        "fr": "En cas de largeurs de coulisse supérieures ou d'exigences plus élevées en matière d’isolation (valeurs R élevées ou valeurs U faibles), le dispositif d’isolation pourra être composé de 2 couches d’isolation. Les panneaux seront toujours placés à joints décalés, tant sur le plan horizontal que vertical. Ils seront également appliqués de manière alternée dans les angles.\nL’isolation de mur creux est constituée petit à petit. On applique tout d'abord une rangée de la première couche (feuillure avec écoulement de l’eau vers l’extérieur), fixée provisoirement au moyen d’une cheville synthétique isolante, suivie par la pose de la première rangée de la deuxième couche (feuillure également avec écoulement de l’eau vers l’extérieur). Voir à cet égard la figure 2. Fixer la deuxième couche d’isolant sur la première au moyen d’une cheville synthétique isolante, appliquée en premier lieu uniquement en dessous dans le panneau. Appliquer la rangée suivante de panneaux isolants de la première couche (glisser les panneaux derrière les panneaux de la deuxième couche). Fixer ensuite les panneaux de la deuxième couche (première rangée) dans le côté supérieur du panneau. Poursuivre l’application de l'isolant comme décrit ci-avant en plaçant à chaque fois les panneaux de la première couche derrière la deuxième couche puis en poursuivant la fixation de la deuxième couche. Les crochets d’ancrage perforants traversent les deux couches d’isolation et sont ancrés dans les parois intérieure et extérieure de mur creux.",
+        "nl": "",
+        "en": ""
+      }
+    }
+  }
+}

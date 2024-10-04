@@ -1,0 +1,60 @@
+{
+  "document": {
+    "language": "FR",
+    "domain": "Finishing",
+    "product_family": "Insulation systems - Thermal insulation systems for cavity walls - Factory-made insulation products",
+    "reference": "ATG 2727",
+    "atglogo_link": "",
+    "qrcode_link": "",
+    "related_atgh": "ATG H867",
+    "holder": {
+      "name": "IKO Insulations B.V.",
+      "address": {
+        "street": "Wielewaalweg 3",
+        "zipcode": "4791 PD",
+        "city": "Klundert",
+        "country": "Netherlands"
+      },
+      "contact": {
+        "website": "https://www.enertherm.eu",
+        "phone": "+31 168 33 14 00",
+        "email": "info@enertherm.eu"
+      }      
+    },
+    "product": [
+      {
+        "product_description": {
+          "product_name": "IKO enertherm ALU PURE",
+          "edge_finishing": [
+            "Tongue and Groove"
+          ]
+        },
+        "intended_use": {
+          "cavity_wall_filling": [
+            "Partial"
+          ]
+        }
+      },
+      {
+        "product_description": {
+          "product_name": "IKO Enertherm ALU",
+          "edge_finishing": [
+            "Tongue and Groove"
+          ]
+        },
+        "intended_use": {
+          "cavity_wall_filling": [
+            "Partial"
+          ]
+        }
+      }
+    ],
+    "installation": {
+      "specific rules": {
+        "fr": "Afin d'obtenir un bon assemblage entre les panneaux, il convient de les poser avec la languette orientée vers le haut et la rainure vers le bas et de bien les serrer contre la paroi intérieur du mur creux.",
+        "nl": "",
+        "en": ""
+      }
+    }
+  }
+}
